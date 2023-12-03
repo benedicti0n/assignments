@@ -5,6 +5,7 @@
   Output - [{ category1 - total_amount_spent_on_category1 }, { category2 - total_amount_spent_on_category2 }]
 */
 
+//this entire code is chatgpt-ed. gave 40+min still understood nothing. Please help!!!
 
 function calculateTotalSpentByCategory(transactions){
   const categoryTotals = {};
