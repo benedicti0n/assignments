@@ -16,6 +16,73 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+
+  add(num) {
+    this.result += num;
+  }
+
+  subtract(num) {
+    this.result -= num;
+  }
+
+  multiply(num) {
+    this.result *= num;
+  }
+
+  divide(num) {
+    if (num === 0) {
+      throw new Error("Cannot divide by zero.");
+    }
+    this.result /= num;
+    if (!isFinite(this.result)) {
+      throw new Error("Result is not a finite number.");
+    }
+  }
+
+
+  clear() {
+    this.result = 0;
+  }
+
+  getResult() {
+    return this.result;
+  }
+
+  /*Notes for myself:- 
+  Learn about constructor
+  throw new Error("")
+  try catch blocks
+  eval(expression)
+  isFinite()
+  test()
+  */
+
+  //Below code is chatGpt-ed :)
+  
+
+  calculate(expression) {
+    // Remove continuous spaces
+    expression = expression.replace(/\s+/g, ' ');
+
+    // Check for invalid characters
+    if (!/^[\d+\-*/().\s]+$/.test(expression)) {
+      throw new Error("Invalid characters in the expression.");
+    }
+
+    // Evaluate the expression
+    try {
+      this.result = eval(expression);
+      if (!isFinite(this.result)) {
+        throw new Error("Result is not a finite number.");
+      }
+    } catch (error) {
+      throw new Error("Invalid expression.");
+    }
+}
+}
 
 module.exports = Calculator;
